@@ -326,7 +326,8 @@ DEBUG=false
 │   ├── core/             # Core configuration
 │   │   ├── config.py     # Settings
 │   │   └── database.py   # DB connections
-│   ├── data/             # DuckDB DB file
+│   ├── data/             
+│   │   └── analytics.duckdb     # DuckDB DB file
 │   ├── middleware/       # Middleware
 │   │   └── rate_limit.py # Rate limiting
 │   ├── models/           # SQLAlchemy models
@@ -336,6 +337,8 @@ DEBUG=false
 │   │   ├── analytics.py  # Query logic
 │   │   └── queue.py      # Redis queue
 │   └── main.py           # FastAPI app
+├── data/
+│   └── events_sample.csv   # Sample events
 ├── scripts/
 │   ├── import_events.py  # CSV import
 │   ├── queue_worker.py   # Background worker
