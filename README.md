@@ -326,6 +326,7 @@ DEBUG=false
 │   ├── core/             # Core configuration
 │   │   ├── config.py     # Settings
 │   │   └── database.py   # DB connections
+│   ├── data/             # DuckDB DB file
 │   ├── middleware/       # Middleware
 │   │   └── rate_limit.py # Rate limiting
 │   ├── models/           # SQLAlchemy models
