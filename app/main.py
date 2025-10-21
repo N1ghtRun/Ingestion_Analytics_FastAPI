@@ -1,3 +1,7 @@
+import warnings
+
+warnings.filterwarnings("ignore", message="Core Pydantic V1 functionality")
+
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from contextlib import asynccontextmanager
@@ -5,7 +9,8 @@ import structlog
 import time
 
 from app.core.config import settings
-from app.api import events
+from app.api import events, stats
+from app.middleware.rate_limit import rate_limit_middleware
 
 # Configure structured logging
 structlog.configure(
@@ -32,6 +37,9 @@ app = FastAPI(
     lifespan=lifespan
 )
 
+# Middleware for rate limiting
+app.middleware("http")(rate_limit_middleware)
+
 
 # Middleware for logging requests
 @app.middleware("http")
@@ -54,6 +62,7 @@ async def log_requests(request: Request, call_next):
 
 # Include routers
 app.include_router(events.router)
+app.include_router(stats.router)
 
 
 @app.get("/health")
@@ -70,6 +79,7 @@ async def root():
         "endpoints": {
             "health": "/health",
             "events": "/events",
+            "stats": "/stats",
             "docs": "/docs"
         }
     }

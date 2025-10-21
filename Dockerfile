@@ -17,20 +17,3 @@ COPY . .
 
 # Run migrations and start server
 CMD ["sh", "-c", "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000"]
-```
-
-Create `.dockerignore`:
-```
-__pycache__
-*.pyc
-*.pyo
-*.pyd
-.Python
-venv/
-.env
-.git
-.gitignore
-.pytest_cache
-.coverage
-*.db
-*.log

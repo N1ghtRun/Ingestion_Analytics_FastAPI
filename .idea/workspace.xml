@@ -4,31 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef7219fb-95bd-4b47-9135-f9000daae831" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.env.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/event_ingestion_analytics.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ADR.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LEARNED.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/events.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/stats.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/database.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/dependencies.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/event.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/schemas/event.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/analytics.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/ingestion.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/import_events.py" afterDir="false" />
+    <list default="true" id="ef7219fb-95bd-4b47-9135-f9000daae831" name="Changes" comment="base">
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/middleware/rate_limit.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/schemas/analytics.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/services/queue.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pytest.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/benchmark_analytics.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/benchmark_ingestion.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/queue_worker.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_rate_limit.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/integration/test_full_flow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.local" beforeDir="false" afterPath="$PROJECT_DIR$/.env.local" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADR.md" beforeDir="false" afterPath="$PROJECT_DIR$/ADR.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEARNED.md" beforeDir="false" afterPath="$PROJECT_DIR$/LEARNED.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/events.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/events.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/stats.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/stats.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/event.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/event.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/analytics.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/analytics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/import_events.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/import_events.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +45,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -61,12 +63,20 @@
     &quot;Python.event.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/python_projects/event_ingestion_analytics/pythonProject1&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\python_projects\event_ingestion_analytics\pythonProject1" />
+      <recent name="F:\python_projects\event_ingestion_analytics\pythonProject1\scripts" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\python_projects\event_ingestion_analytics\pythonProject1\data" />
       <recent name="F:\python_projects\event_ingestion_analytics\pythonProject1\app" />
+      <recent name="F:\python_projects\event_ingestion_analytics\pythonProject1" />
+      <recent name="F:\python_projects\event_ingestion_analytics\pythonProject1\scripts" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
@@ -183,6 +193,30 @@
       <option name="presentableId" value="Default" />
       <updated>1760705151415</updated>
     </task>
+    <task id="LOCAL-00001" summary="base">
+      <option name="closed" value="true" />
+      <created>1760724723302</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1760724723302</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="base" />
+    <option name="LAST_COMMIT_MESSAGE" value="base" />
   </component>
 </project>

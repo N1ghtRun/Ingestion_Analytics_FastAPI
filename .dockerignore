@@ -1,0 +1,25 @@
+# .dockerignore
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+.env
+.env.local
+.git/
+.gitignore
+.pytest_cache/
+.coverage
+htmlcov/
+*.db
+*.duckdb
+*.log
+node_modules/
+.idea/
+.vscode/
+*.md
+tests/
+.app/data/
+alembic/versions/*.pyc

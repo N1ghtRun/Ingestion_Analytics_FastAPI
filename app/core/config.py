@@ -15,9 +15,9 @@ class Settings(BaseSettings):
     database_url: str = "postgresql+psycopg://postgres:postgres@localhost:5432/events"
     database_url_sync: str = "postgresql://postgres:postgres@localhost:5432/events"
 
-    # Redis (optional)
+    # Redis
     redis_url: str = "redis://localhost:6379/0"
-    use_queue: bool = False
+    use_queue: bool = True
 
     # Rate limiting
     rate_limit_requests: int = 100

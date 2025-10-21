@@ -28,14 +28,15 @@ services:
       retries: 5
 
   api:
+    image: pythonproject1:latest
     build: .
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    command: sh -c "sleep 5 && alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
     volumes:
       - .:/app
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=postgresql+asyncpg://postgres:postgres@db:5432/events
+      - DATABASE_URL=postgresql+psycopg://postgres:postgres@db:5432/events
       - DATABASE_URL_SYNC=postgresql://postgres:postgres@db:5432/events
       - REDIS_URL=redis://redis:6379/0
       - DEBUG=true
@@ -44,6 +45,21 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+    restart: unless-stopped
+
+  worker:
+    image: pythonproject1:latest  # shared image
+    container_name: queue-worker
+    command: sh -c "python scripts/queue_worker.py"
+    depends_on:
+      - db
+      - redis
+    environment:
+      - DATABASE_URL_SYNC=postgresql://postgres:postgres@db:5432/events
+      - REDIS_URL=redis://redis:6379/0
+      - USE_QUEUE=true
+    volumes:
+      - .:/app
 
 volumes:
   postgres_data:
